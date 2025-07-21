@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python & R Visualizations – Anh Bui</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menubar {
+      padding: 1em;
+      font-weight: bold;
+    }
+
+    .menubar a {
+      text-decoration: none;
+      color: black;
+      border-bottom: 2px solid black;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 1em;
+    }
+
+    .gallery-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 2em;
+    }
+
+    .gallery-item {
+      border: 2px solid #000;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid #000;
+    }
+
+    .description {
+      padding: 1em;
+    }
+
+    .description h3 {
+      margin: 0.5em 0;
+    }
+
+    .sub p {
+      margin: 0;
+      font-size: 0.9em;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="menubar">
+    <a href="viz.html">← Back to Visualizations</a>
+  </div>
+
+  <h1>Python & R Visualizations</h1>
+
+  <div class="gallery-container">
+    <a href="final_customer_behavior_project.html" class="gallery-item" target="_blank">
+      <img src="https://i.pinimg.com/736x/95/38/f5/9538f5388f36141a952c6a7a408a8941.jpg" alt="Customer Behavior">
+      <div class="description">
+        <h3>CUSTOMER BEHAVIOR</h3>
+        <div class="sub"><p>July 2025</p></div>
+        <p>Folium | Interactive HTML Report</p>
+      </div>
+    </a>
+
+    <a href="Cincinnati_incident_7.html" class="gallery-item" target="_blank">
+      <img src="https://i.pinimg.com/736x/36/99/13/369913ed947d48237146e67c8697c2a4.jpg" alt="Cincinnati Crime Map">
+      <div class="description">
+        <h3>CINCINNATI CRIME MAP</h3>
+        <div class="sub"><p>July 2025</p></div>
+        <p>Folium | Geospatial Visualization</p>
+      </div>
+    </a>
+  </div>
+</body>
+</html>
