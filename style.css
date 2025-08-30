@@ -1,140 +1,147 @@
-/* General layout */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Staatliches&display=swap');
+
+/* Base layout */
 body {
-  background-color: #f9f7f4;
-  font-family: sans-serif;
-  text-align: center;
   margin: 0;
   padding: 0;
+  font-family: 'Libre Franklin', Arial, sans-serif;
+  background-color: #f9f7f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* Container for centered content */
+/* Container */
 .container {
-  padding-top: 20%;
+  text-align: center;
+  margin-top: 100px;
+  max-width: 1100px;
+  padding: 20px;
 }
 
 /* Headings */
 h1 {
-  font-size: 3em;
-  font-weight: bold;
-  margin-bottom: 0.2em;
+  font-size: 2.5em;
+  margin: 40px 0 20px;
+  color: #0B1215;
+  font-family: 'Staatliches', cursive;
+  text-align: center;
 }
 
-p {
+.subtitle {
   font-size: 1.2em;
-  color: #333;
-  margin: 0;
+  color: #666;
+  margin: 10px 0 40px;
 }
 
-/* Button container */
-.buttons {
-  margin-top: 2em;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-/* Base link + button style */
-a {
-  text-decoration: none;
-  border: 2px solid #000;
-  padding: 0.6em 1.4em;
-  font-weight: bold;
-  color: #000;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  display: inline-block;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
-  cursor: pointer;
-}
-
-/* Flicker / shine effect */
-a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.6) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-25deg);
-}
-
-a:hover::before {
-  animation: shine 0.8s;
-}
-
-@keyframes shine {
-  100% { left: 125%; }
-}
-
-a:hover {
-  background: #000;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* Cards for gallery pages (viz, mlai, python-r) */
+/* Gallery container */
 .gallery-container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 20px 0 80px;
+}
+
+/* Gallery grid */
+.gallery {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 2em;
-  padding: 2em;
+  justify-content: center;
+  gap: 20px;
 }
 
 .gallery-item {
+  flex: 0 1 300px;
   border: 2px solid #000;
   border-radius: 10px;
-  width: 300px;
-  text-align: center;
   text-decoration: none;
-  color: black;
-  overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 15px;
+  color: #0B1215;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .gallery-item img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 2px solid #000;
-}
-
-.gallery-item:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  margin-bottom: 10px;
 }
 
 .description {
-  padding: 1em;
+  margin-top: 8px;
+  text-align: center;
 }
 
 .description h3 {
-  margin: 0.5em 0;
+  margin: 0;
+  font-size: 1.1em;
+  font-family: 'Staatliches', cursive;
+  color: #0B1215;
+}
+
+.description p {
+  margin: 4px 0;
+  font-size: 0.95em;
+  color: #555;
 }
 
 .sub p {
-  margin: 0;
-  font-size: 0.9em;
-  color: gray;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #999;
 }
 
-/* Navigation bars */
-.menubar, .nav {
-  padding: 1em;
-  font-weight: bold;
-  text-align: left;
+/* Menubar */
+.menubar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #f9f7f4;
+  padding: 20px 40px;
+  font-family: 'Staatliches', cursive;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-.menubar a, .nav a {
+/* Menubar links */
+.menubar a {
   text-decoration: none;
-  color: black;
-  border-bottom: 2px solid black;
+  font-size: 20px;
+  color: #0B1215;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.menubar a:hover {
+  transform: scale(1.1);
+}
+
+.menubar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background-color: #0B1215;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.menubar a:hover::after {
+  transform: scaleX(1);
 }
