@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Staatliches&display=swap');
+
+body{margin:0;padding:0;background:#f5f3ef;font-family:'Libre Franklin',Arial,sans-serif;
+display:flex;flex-direction:column;align-items:center;min-height:100vh}
+.menubar{width:100%;display:flex;align-items:center;background:#f5f3ef;padding:20px 40px;
+font-family:'Staatliches',cursive;position:fixed;top:0;left:0;z-index:100}
+.menubar a{text-decoration:none;font-size:20px;color:#0B1215;position:relative;transition:transform .3s}
+.menubar a:hover{transform:scale(1.1)}
+.menubar a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:#0B1215;
+transform:scaleX(0);transform-origin:center;transition:transform .3s}
+.menubar a:hover::after{transform:scaleX(1)}
+
+.container{text-align:center;margin-top:100px;padding:20px}
+.intro-text{font-size:1em;color:#0B1215;margin:30px 0}
+
+.button-container{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.viz-button{display:flex;flex-direction:column;align-items:center;justify-content:center;
+width:320px;height:220px;border:2px solid #0B1215;border-radius:20px;text-decoration:none;
+color:#0B1215;font-size:1.1em;position:relative;background:#f5f3ef;transition:transform .3s,background .3s,color .3s}
+.viz-button .arrow{font-size:1.6em;opacity:0;position:absolute;bottom:12px;right:14px;transition:opacity .3s}
+.viz-button:hover{transform:scale(1.05);background:#0B1215;color:#f5f3ef}
+.viz-button:hover .arrow{opacity:1}
