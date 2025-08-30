@@ -33,55 +33,79 @@ body {
   position: relative;
   transition: transform 0.3s;
 }
-
 .menubar a:hover { transform: scale(1.1); }
-
 .menubar a::after {
   content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -5px;
+  position: absolute; left: 0; right: 0; bottom: -5px;
   height: 1px; background: #0B1215;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s;
+  transform: scaleX(0); transform-origin: center; transition: transform 0.3s;
 }
-
 .menubar a:hover::after { transform: scaleX(1); }
 
-/* Grid of option cards */
+/* Grid */
 .grid {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 20px;
+  gap: 32px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1000px;
-  padding: 120px 20px 40px; /* top padding accounts for fixed menubar */
+  max-width: 1200px;
+  padding: 120px 24px 48px; /* room for fixed menubar */
   box-sizing: border-box;
 }
 
-/* Card */
+/* Card (big + flicker) */
 .card {
+  position: relative;
   border: 2px solid #0B1215;
-  border-radius: 20px;
-  padding: 40px;
-  min-width: 280px;
-  max-width: 420px;
-  flex: 1 1 320px;
+  border-radius: 28px;
+  padding: 64px 72px;
+  min-width: 420px;
+  max-width: 560px;
+  flex: 1 1 520px;
   text-align: center;
   background: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;                 /* needed for shine sweep */
 }
 
 .card a {
   text-decoration: none;
   color: #0B1215;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  letter-spacing: .4px;
 }
 
+/* Shine / flicker sweep */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+}
+.card:hover::before { animation: shine .8s; }
+
+@keyframes shine { 100% { left: 125%; } }
+
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transform: scale(1.04);
+  box-shadow: 0 10px 24px rgba(0,0,0,.14);
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .card {
+    min-width: 300px;
+    padding: 40px;
+    border-radius: 20px;
+    flex: 1 1 320px;
+  }
+  .card a { font-size: 1.1rem; }
 }
