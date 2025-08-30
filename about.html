@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Anh Bui</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f7f4;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 1em;
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-bottom: 2em;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .middle-column {
+      max-width: 600px;
+      text-align: left;
+      font-size: 1em;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .gallery-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+    }
+
+    .gallery-item {
+      border: 2px solid #000;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      padding: 1em;
+    }
+
+    .gallery-item h3 {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>About Me</h1>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="column"></div>
+      <div class="column middle-column">
+        <p>I am an undergraduate student at the University of Cincinnati pursuing a Bachelor of Science in Business Analytics and a Bachelor of Arts in Information Systems. My focus is on turning data into insights that help organizations make better decisions.</p>
+        <p>Through my internships, I have worked with tools like SQL, Tableau, Power BI, R, Python, and Informatica. I have analyzed large datasets, built dashboards, and supported business teams with data-driven solutions at companies such as Great American Insurance Group and BIDV.</p>
+        <p>I enjoy projects that bring data to life, from customer segmentation to sports analytics. I am building a strong foundation in data analysis and visualization to prepare for a career in data science and analytics.</p>
+      </div>
+      <div class="column"></div>
+    </div>
+
+    <div class="gallery-container">
+      <div class="gallery">
+        <div class="gallery-item">
+          <div class="description">
+            <h3>Skills</h3>
+            <p>Statistical Analysis</p>
+            <p>Data Visualization</p>
+            <p>Machine Learning</p>
+            <p>SQL & Database Management</p>
+            <p>Dashboard Development (Tableau, Power BI)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
