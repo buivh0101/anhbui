@@ -1,35 +1,47 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Staatliches&display=swap');
 
-/* Base layout */
+
+/* =========================
+   BASE
+   ========================= */
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Libre Franklin', Arial, sans-serif;
   background-color: #f9f7f4;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   min-height: 100vh;
-  overflow-y: auto;
+
   overflow-x: hidden;
 }
 
-/* Optional wrapper */
+
 .container {
   text-align: center;
   max-width: 1100px;
   padding: 20px;
 }
 
-/* Title */
+
+/* =========================
+   TITLE
+   ========================= */
+
 h1 {
   font-size: 2.5em;
   margin: 120px 0 20px;
+
   color: #0B1215;
   font-family: 'Staatliches', cursive;
   text-align: center;
 }
+
 
 .subtitle {
   font-size: 1.2em;
@@ -37,184 +49,306 @@ h1 {
   margin: 10px 0 40px;
 }
 
-/* Menubar */
+
+/* =========================
+   MENUBAR
+   ========================= */
+
 .menubar {
   width: 100%;
+
   display: flex;
   align-items: center;
+
   background-color: #f9f7f4;
+
   padding: 20px 40px;
+
   font-family: 'Staatliches', cursive;
+
   position: fixed;
   top: 0;
   left: 0;
+
   z-index: 1000;
 }
+
 
 .menubar a {
   text-decoration: none;
   font-size: 20px;
   color: #0B1215;
+
   position: relative;
+
   transition: transform 0.3s ease;
 }
+
 
 .menubar a:hover {
   transform: scale(1.1);
 }
 
+
 .menubar a::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: -5px;
+
   height: 1px;
+
   background-color: #0B1215;
+
   transform: scaleX(0);
   transform-origin: center;
+
   transition: transform 0.3s ease;
 }
+
 
 .menubar a:hover::after {
   transform: scaleX(1);
 }
 
-/* Gallery container */
+
+/* =========================
+   NORMAL GALLERY
+   ========================= */
+
 .gallery-container {
   margin: 0 auto;
+
   max-width: 1100px;
+
   padding: 20px 0 80px;
+
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
   gap: 20px;
 }
 
-/* Cards */
+
+/* =========================
+   PROJECT CARDS
+   ========================= */
+
 .gallery-item {
   position: relative;
-  flex: 0 1 300px;
+
+  flex: 0 0 340px;
+
+  width: 340px;
+
+  box-sizing: border-box;
+
   border: 2px solid #000;
   border-radius: 12px;
+
   text-decoration: none;
+
   padding: 15px;
+
   color: #0B1215;
   background: #fff;
+
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
 
 .gallery-item img {
   width: 100%;
   height: 200px;
+
   object-fit: cover;
+
   border-radius: 6px;
+
   margin-bottom: 10px;
 }
+
 
 .description {
   margin-top: 8px;
   text-align: center;
 }
 
+
 .description h3 {
   margin: 0;
+
   font-size: 1.1em;
+
   font-family: 'Staatliches', cursive;
+
   color: #0B1215;
 }
 
+
 .description p {
   margin: 4px 0;
+
   font-size: 0.95em;
+
   color: #555;
 }
+
 
 .sub p {
   font-size: 0.85em;
   font-style: italic;
+
   color: #999;
 }
 
+
+/* =========================
+   CARD HOVER
+   ========================= */
+
+.gallery-item:hover {
+  transform: scale(1.04);
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+
 /* Shine effect */
+
 .gallery-item::before {
   content: "";
+
   position: absolute;
+
   top: 0;
   left: -75%;
+
   width: 50%;
   height: 100%;
+
   background: linear-gradient(
     120deg,
     rgba(255,255,255,0) 0%,
     rgba(255,255,255,0.6) 50%,
     rgba(255,255,255,0) 100%
   );
+
   transform: skewX(-25deg);
 }
+
 
 .gallery-item:hover::before {
   animation: shine 0.8s;
 }
 
+
 @keyframes shine {
+
   100% {
     left: 125%;
   }
+
 }
 
-.gallery-item:hover {
-  transform: scale(1.04);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
 
-/* Horizontal project slider */
+/* =========================
+   HORIZONTAL PROJECT SLIDER
+   Used by ML + Causal pages
+   ========================= */
+
 .project-slider {
   width: 100vw;
 
   display: flex;
+
   flex-direction: row;
+
   flex-wrap: nowrap;
+
   gap: 24px;
 
   overflow-x: auto;
+
   overflow-y: hidden;
 
   scroll-snap-type: x mandatory;
+
   scroll-behavior: smooth;
 
   box-sizing: border-box;
 
-  padding: 20px calc(50vw - 170px) 40px;
+  padding-top: 20px;
 
-  /* Hide scrollbar */
+  padding-bottom: 40px;
+
+  padding-left: calc(50vw - 170px);
+
+  padding-right: calc(50vw - 170px);
+
+  /* Hide scrollbar but keep scrolling */
   scrollbar-width: none;
+
   -ms-overflow-style: none;
 }
 
+
+/* Chrome / Edge / Safari */
+
 .project-slider::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+
   display: none;
 }
 
+
+/* Cards inside slider */
+
 .project-slider .gallery-item {
   flex: 0 0 340px;
+
   width: 340px;
-  box-sizing: border-box;
+
+  min-width: 340px;
 
   scroll-snap-align: center;
+
+  scroll-snap-stop: always;
 }
 
-/* Mobile */
+
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 600px) {
 
-  .project-slider {
-    padding-left: 25px;
-    padding-right: 25px;
+  h1 {
+    font-size: 2em;
   }
+
+
+  .project-slider {
+    padding-left: 7.5vw;
+    padding-right: 7.5vw;
+  }
+
 
   .project-slider .gallery-item {
     flex: 0 0 85vw;
+
     width: 85vw;
+
+    min-width: 85vw;
   }
+
 }
