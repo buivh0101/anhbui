@@ -170,13 +170,13 @@ h1 {
 }
 
 /* Causal inference horizontal slider */
-.causal-slider {
-  display: flex;
-  gap: 20px;
 
-  width: 100%;
-  max-width: 100vw;
-  box-sizing: border-box;
+.causal-slider {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
 
   overflow-x: auto;
   overflow-y: hidden;
@@ -184,23 +184,27 @@ h1 {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
-  padding: 20px calc(50vw - 170px) 35px;
+  box-sizing: border-box;
+
+  padding: 20px calc(50vw - 170px) 40px;
 }
 
-/* Causal project cards */
 .causal-slider .gallery-item {
   flex: 0 0 340px;
+  width: 340px;
   box-sizing: border-box;
+
   scroll-snap-align: center;
 }
 
-/* Make scrollbar visible */
+/* Horizontal scrollbar */
+
 .causal-slider::-webkit-scrollbar {
   height: 10px;
 }
 
 .causal-slider::-webkit-scrollbar-track {
-  background: #e8e5e1;
+  background: #e5e2de;
   border-radius: 10px;
 }
 
@@ -210,22 +214,20 @@ h1 {
 }
 
 .causal-slider::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  background: #333;
 }
 
 /* Mobile */
+
 @media (max-width: 600px) {
 
-  h1 {
-    font-size: 2em;
-  }
-
   .causal-slider {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .causal-slider .gallery-item {
     flex: 0 0 85vw;
+    width: 85vw;
   }
 }
