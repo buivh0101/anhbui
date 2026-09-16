@@ -169,10 +169,10 @@ h1 {
   box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
-/* Causal inference horizontal slider */
-
-.causal-slider {
+/* Horizontal project slider */
+.project-slider {
   width: 100vw;
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -187,9 +187,17 @@ h1 {
   box-sizing: border-box;
 
   padding: 20px calc(50vw - 170px) 40px;
+
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.causal-slider .gallery-item {
+.project-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.project-slider .gallery-item {
   flex: 0 0 340px;
   width: 340px;
   box-sizing: border-box;
@@ -197,36 +205,15 @@ h1 {
   scroll-snap-align: center;
 }
 
-/* Horizontal scrollbar */
-
-.causal-slider::-webkit-scrollbar {
-  height: 10px;
-}
-
-.causal-slider::-webkit-scrollbar-track {
-  background: #e5e2de;
-  border-radius: 10px;
-}
-
-.causal-slider::-webkit-scrollbar-thumb {
-  background: #777;
-  border-radius: 10px;
-}
-
-.causal-slider::-webkit-scrollbar-thumb:hover {
-  background: #333;
-}
-
 /* Mobile */
-
 @media (max-width: 600px) {
 
-  .causal-slider {
+  .project-slider {
     padding-left: 25px;
     padding-right: 25px;
   }
 
-  .causal-slider .gallery-item {
+  .project-slider .gallery-item {
     flex: 0 0 85vw;
     width: 85vw;
   }
